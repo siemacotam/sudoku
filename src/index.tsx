@@ -1,17 +1,24 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { ThemeProvider } from 'styled-components'
+
+import { Content, Title, Grid, Card } from './components'
+import reportWebVitals from './core/reportWebVitals'
+import { unregister } from './core'
+import { GlobalStyles, theme } from './styles'
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <ThemeProvider theme={theme}>
+    <GlobalStyles />
+    <Content data-cy="content">
+      <Title data-cy="title">Sudoku</Title>
+      <Card data-cy="card">
+        <Grid />
+      </Card>
+    </Content>
+  </ThemeProvider>,
   document.getElementById('root')
-);
+)
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+reportWebVitals()
+unregister()
