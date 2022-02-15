@@ -30,7 +30,7 @@ const Grid: FC = () => {
 
   useEffect(() => {
     if (!state.solvedGrid) create()
-  }, [create])
+  }, [create, state.solvedGrid])
 
   const fill = useCallback(
     (n: NUMBERS) => {
